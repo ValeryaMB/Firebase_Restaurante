@@ -1,0 +1,7 @@
+{
+  "name": "firebase__rest",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
