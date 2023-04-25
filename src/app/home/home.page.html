@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Registro
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,12 +9,120 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Registro</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="contenedor">
+    <div class="dato">
+      <ion-list class="formulario">
+        <ion-item>
+          <ion-icon name="create-outline" slot="start"></ion-icon>
+          <ion-input label="Nombre" label-placement="floating" fill="solid" type="text" placeholder="Enter Text"
+            [(ngModel)]="newPlato.NombrePlato"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="pencil-outline" slot="start"></ion-icon>
+          <ion-input label="Precio" label-placement="floating" fill="solid" type="Number" placeholder="Enter Text"
+            [(ngModel)]="newPlato.precio"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="pencil-outline" slot="start"></ion-icon>
+
+          <form>
+            <p class="clasificacion">
+              <input id="radio1" type="radio" name="estrellas" value="5"  [(ngModel)]="newPlato.calificacion"><!--
+              --><label for="radio1">★</label><!--
+              --><input id="radio2" type="radio" name="estrellas" value="4" [(ngModel)]="newPlato.calificacion"><!--
+              --><label for="radio2">★</label><!--
+              --><input id="radio3" type="radio" name="estrellas" value="3" [(ngModel)]="newPlato.calificacion"><!--
+              --><label for="radio3">★</label><!--
+              --><input id="radio4" type="radio" name="estrellas" value="2" [(ngModel)]="newPlato.calificacion"><!--
+              --><label for="radio4">★</label><!--
+              --><input id="radio5" type="radio" name="estrellas" value="1" [(ngModel)]="newPlato.calificacion"><!--
+              --><label for="radio5">★</label>
+            </p>
+          </form>
+        </ion-item>
+
+
+
+      </ion-list>
+    </div>
+
+    <div class="imagen"><ion-item >
+      <ion-label>Foto:</ion-label>
+      <ion-button color="dark" style="height: 40px; width: 40px;">
+        <label for="file-uploap">
+          <ion-icon slot="icon-only" name="images" style="height: 80px; width: 30px; color: white;"></ion-icon>
+        </label>
+        <input (change)="imag($event)" id="file-uploap" style="display: none ;" type="file" accept="images/jpeg" [(ngModel)]="newPlato.foto">
+      </ion-button>
+     
+      
+    </ion-item>
+      <img *ngIf="url1" [src]="url1" alt="vista previa">
+<br>
+      <ion-input type="text"  [(ngModel)]="newPlato.foto" label="URL" label-placement="floating" 
+      fill="solid" type="text" placeholder="Enter Text" ></ion-input>
+
+
+    </div>
+
+    
+  <ion-fab vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="save()" size="small" color="success">
+      <ion-icon name="add-circle-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
   </div>
+
+
+  <ion-list  class="mostrar">
+    <ion-item *ngFor="let p of Platos" class="mostrar">
+
+      <ion-card class="carta">
+        <img alt="{{p.foto}}" src="{{p.foto}}" style="width: 80%
+        ;"/>
+        <ion-card-header>
+          <ion-item>
+            <ion-icon name="star"></ion-icon>
+            <form>
+              <p class="clasificacion">
+                <input id="radio1" type="radio" name="estrellas" value="5"  [(ngModel)]="p.calificacion"><!--
+                --><label for="radio1" class="al">★</label><!--
+                --><input id="radio2" type="radio" name="estrellas" value="4" [(ngModel)]="p.calificacion"><!--
+                --><label for="radio2">★</label><!--
+                --><input id="radio3" type="radio" name="estrellas" value="3" [(ngModel)]="p.calificacion"><!--
+                --><label for="radio3">★</label><!--
+                --><input id="radio4" type="radio" name="estrellas" value="2" [(ngModel)]="p.calificacion"><!--
+                --><label for="radio4">★</label><!--
+                --><input id="radio5" type="radio" name="estrellas" value="1" [(ngModel)]="p.calificacion"><!--
+                --><label for="radio5">★</label>
+              </p>
+            </form>
+            <ion-card-title>{{p.calificacion}}/5 </ion-card-title>
+          </ion-item>
+          <ion-item>
+            <ion-card-subtitle class="NMP">{{p.NombrePlato}}</ion-card-subtitle>
+          </ion-item>
+        </ion-card-header>
+
+        <ion-card-content>
+          Precio:
+          <br>
+
+          {{p.precio}} $
+
+        </ion-card-content>
+      </ion-card>
+
+      <ion-button (click)="delete(p)" color="danger">
+        <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+      </ion-button>
+
+
+    </ion-item>
+  </ion-list>
 </ion-content>

@@ -25,3 +25,87 @@
 #container a {
   text-decoration: none;
 }
+
+.list-formulario{
+  justify-items: center;
+  margin-bottom: 20px;
+  margin: 10px;
+  border: 1px solid #fff;
+  width: 100%;
+}
+
+
+.dato{
+  width: 60%;
+  margin: 1%;
+  border-radius: 20px;
+
+}
+.imagen{
+
+  padding: 1%;
+  margin-left: 14%;  
+  width: 30%;
+  border-radius: 20px;
+}
+.contenedor{
+
+  background: #0F2027;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+border-radius: 21px;
+  margin: 1%;
+  display: flex;
+  background-color: aquamarine;
+}
+.NMP{
+  font-family: cursive;
+  font-size: 20px;
+}
+.formulario{
+  border-radius: 20px; 
+}
+.mostrar{
+  border-radius: 20px;
+}
+
+
+#form {
+  width: 250px;
+  margin: 0 auto;
+  height: 50px;
+}
+
+#form p {
+  text-align: center;
+}
+
+#form label {
+  font-size: 20px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  color: grey;
+}
+
+.clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+label:hover,
+label:hover ~ label {
+  color: orange;
+}
+
+input[type="radio"]:checked ~ label {
+  color: orange;
+}
+.carta{
+  width: 50%;
+}
